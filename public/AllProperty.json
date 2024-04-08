@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Cozy Apartment in Downtown",
+    "segment_name": "Apartment",
+    "image": "https://i.ibb.co/2qs2Tdc/117.jpg",
+    "description": "A charming apartment located in the heart of the city, perfect for young professionals or students.",
+    "price": "$1500/month",
+    "status": "rent",
+    "area": "800 sq ft",
+    "location": "Downtown, City X",
+    "facilities": ["living room", "kitchen"]
+  },
+  {
+    "id": 2,
+    "estate_title": "Spacious Family Home",
+    "segment_name": "Single-family home",
+    "image": "https://i.ibb.co/YNJQvmB/3548.jpg",
+    "description": "A beautiful single-family home with ample space for a growing family, featuring a backyard and garage.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "Suburbia, City Y",
+    "facilities": ["living room", "kitchen", "backyard"]
+  },
+  {
+    "id": 3,
+    "estate_title": "Luxury Beachfront Villa",
+    "segment_name": "Vacation rental",
+    "image": "https://i.ibb.co/HCTZ4Mw/6250.jpg",
+    "description": "An exquisite villa located on the beach, offering breathtaking ocean views and luxurious amenities.",
+    "price": "$10,000/week",
+    "status": "rent",
+    "area": "5000 sq ft",
+    "location": "Beachfront, City Z",
+    "facilities": ["living room", "kitchen", "swimming pool"]
+  },
+  {
+    "id": 4,
+    "estate_title": "Modern Urban Loft",
+    "segment_name": "Apartment",
+    "image": "https://i.ibb.co/CbKLy3c/10725.jpg",
+    "description": "A trendy loft apartment in a bustling urban area, featuring industrial design and city views.",
+    "price": "$2000/month",
+    "status": "rent",
+    "area": "1000 sq ft",
+    "location": "Downtown, City X",
+    "facilities": ["living room", "kitchen", "gym"]
+  },
+  {
+    "id": 5,
+    "estate_title": "Quaint Townhouse",
+    "segment_name": "Townhouse",
+    "image": "https://i.ibb.co/B42Dcgw/152152.jpg",
+    "description": "A charming townhouse nestled in a quiet neighborhood, perfect for small families or couples.",
+    "price": "$250,000",
+    "status": "sale",
+    "area": "1500 sq ft",
+    "location": "Suburbia, City Y",
+    "facilities": ["living room", "kitchen", "backyard"]
+  },
+  {
+    "id": 6,
+    "estate_title": "Senior Living Community",
+    "segment_name": "Senior living community",
+    "image": "https://i.ibb.co/nf5FS8j/cafe-living-room-loft-style.jpg",
+    "description": "A vibrant community designed for seniors, offering comfortable living and a range of amenities.",
+    "price": "Contact for pricing",
+    "status": "rent",
+    "area": "Varies",
+    "location": "Retirement Village, City Z",
+    "facilities": ["living room", "dining area", "medical services"]
+  },
+  {
+    "id": 7,
+    "estate_title": "Cosy Student Apartment",
+    "segment_name": "Student housing",
+    "image": "https://i.ibb.co/7pLkwxY/datingjungle-lz-Lmd-B6h-Nzg-unsplash.jpg",
+    "description": "A cozy apartment perfect for students, conveniently located near universities and public transportation.",
+    "price": "$800/month",
+    "status": "rent",
+    "area": "600 sq ft",
+    "location": "University District, City X",
+    "facilities": ["living room", "kitchen", "study area"]
+  },
+  {
+    "id": 8,
+    "estate_title": "Vacation Rental Cottage",
+    "segment_name": "Vacation rental",
+    "image": "https://i.ibb.co/vcQwXFx/joshua-mayo-Kbo-Mbhl-Rg-GY-unsplash.jpg",
+    "description": "A charming cottage ideal for vacation getaways, nestled in a picturesque countryside setting.",
+    "price": "$150/night",
+    "status": "rent",
+    "area": "1200 sq ft",
+    "location": "Countryside, City Y",
+    "facilities": ["living room", "kitchen", "fireplace"]
+  },
+  {
+    "id": 9,
+    "estate_title": "Modern Apartment Complex",
+    "segment_name": "Apartment",
+    "image": "https://i.ibb.co/G9gtJVX/olivia-hutcherson-Xnnwop7-E1-PU-unsplash.jpg",
+    "description": "A contemporary apartment complex offering stylish living spaces and a range of amenities.",
+    "price": "$200,000",
+    "status": "sale",
+    "area": "Varies",
+    "location": "New Development, City Z",
+    "facilities": ["swimming pool", "gym", "parking"]
+  }
+]
+
+  
