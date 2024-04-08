@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 const FirebaseProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     // social provider
     const googleProvider = new GoogleAuthProvider();
@@ -14,19 +15,23 @@ const FirebaseProvider = ({children}) => {
 
     // create a new user
     const createUser = (email, password) =>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // sign in user
     const signIn = (email, password) =>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     // google login
     const googleLogin = () =>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     // github login
     const githubLogin = () =>{
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
@@ -34,21 +39,25 @@ const FirebaseProvider = ({children}) => {
   const logout = () => {
     setUser(null);
     signOut(auth);
+    // setLoading(true)
   };
 
     // observer
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
+                setLoading(false)
               setUser(user)
-              console.log("useEffect",user);
+            
             }
         });
 
-        return () => unSubscribe()
+        return () => {
+            unSubscribe()
+        }
     },[])
 
-    const AuthInfo = {createUser, signIn, googleLogin, githubLogin, user, logout}
+    const AuthInfo = {createUser, signIn, googleLogin, githubLogin, user, logout, loading}
     return (
         <AuthContext.Provider value={AuthInfo}>
             {children}

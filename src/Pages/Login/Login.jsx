@@ -2,13 +2,16 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
-import { Link } from "react-router-dom";
+import { Link ,useLocation, useNavigate} from "react-router-dom";
 
 const Login = () => {
     // show password icon
     const [showPass, setShowPass] = useState(false);
     const { signIn , googleLogin, githubLogin} = useContext(AuthContext);
 
+    const location = useLocation()
+    console.log('location', location);
+    const navigate = useNavigate()
 
     const {
         register,
@@ -22,7 +25,10 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user);
+                
+                if(result.user){
+                    navigate(location?.state ? location.state : "/")
+                }
             })
             .catch(error => {
                 console.error(error)
@@ -58,7 +64,7 @@ const Login = () => {
                             </label>
                             <input type="email" placeholder="email" className="input input-bordered" required {...register("email", { required: true })} />
 
-                            {errors.email && <span>This field is required</span>}
+                            {errors.email && <span className="text-red-600">This field is required</span>}
                         </div>
 
 
@@ -72,7 +78,7 @@ const Login = () => {
 
                                     placeholder="Password"
                                     className="input input-bordered w-full"
-                                    {...register("password", { required: true })}
+                                    {...register("password", )}
 
                                 />
                                 <span onClick={() => setShowPass(!showPass)} className=" font-bold text-3xl right-3 absolute ">

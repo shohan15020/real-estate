@@ -45,7 +45,7 @@ const Register = () => {
                             </label>
                             <input type="text" placeholder="Your name" className="input input-bordered" required {...register("name", { required: true })} />
 
-                            {errors.name && <span>This field is required</span>}
+                            {errors.name && <span >This field is required</span>}
                         </div>
 
 
@@ -62,7 +62,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo Url</span>
                             </label>
-                            <input type="text" placeholder="Photo url" className="input input-bordered" {...register("photo", { required: true })} />
+                            <input type="text" placeholder="Photo url" className="input input-bordered" {...register("photo")} />
 
                             {errors.photo && <span>This field is required</span>}
                         </div>

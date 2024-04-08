@@ -12,6 +12,7 @@ const Nav = () => {
     </>
 
     const { logout, user } = useContext(AuthContext);
+    console.log(user);
     return (
         <>
             <div className="navbar bg-base-100">
@@ -37,24 +38,31 @@ const Nav = () => {
                 <div className="navbar-end">
 
                     {
-                        user ? <div className="dropdown dropdown-end">
+                        user ? <div className="dropdown dropdown-end flex justify-center items-center">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL || "https://i.ibb.co/y0yrnYQ/1681283571946.jpg"} />
+                                    <img src={user?.photoURL || "https://i.ibb.co/y0yrnYQ/1681283571946.jpg"}
+
+                                        title={user?.displayName || 'Name not found'}
+                                        alt="User avatar" 
+                                    />
+
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+
+                            <button onClick={logout} className="btn btn-sm  btn-ghost">
+                                Logout
+                            </button>
+
+                            {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
                                     <button className="btn btn-sm  btn-ghost">{user?.displayName || 'user name not found'}</button>
 
                                 </li>
                                 <li>
-                                    <button
-                                        onClick={logout}
-                                        className="btn btn-sm  btn-ghost">Logout</button>
-
+                                    
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                             :
                             <Link to='/login'>

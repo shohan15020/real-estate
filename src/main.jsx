@@ -13,6 +13,7 @@ import Login from './Pages/Login/Login.jsx';
 import Register from './Pages/Register/Register.jsx';
 import FirebaseProvider from './Firebase/FirebaseProvider.jsx';
 import SinglePropertyDetail from './Pages/singlePropertyDetail/SinglePropertyDetail.jsx';
+import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes.jsx';
 
 
 
@@ -30,7 +31,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/singleProperty/:id",
-        element: <SinglePropertyDetail></SinglePropertyDetail>,
+        element: <PrivateRoutes>
+          <SinglePropertyDetail></SinglePropertyDetail>
+        </PrivateRoutes>,
+        
         loader: () => fetch("/AllProperty.json")
         // loader: ({ params }) => fetch(`/${link}/${params.id}`),
       },
