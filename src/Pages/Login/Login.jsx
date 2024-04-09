@@ -21,13 +21,15 @@ const Login = () => {
 
     const onSubmit = (data) => {
         const { email, password } = data;
+        
 
 
         signIn(email, password)
             .then(result => {
                 
                 if(result.user){
-                    navigate(location?.state ? location.state : "/")
+                    
+                    navigate("/")
                 }
             })
             .catch(error => {
@@ -41,6 +43,8 @@ const Login = () => {
         social()
         .then(result => {
             console.log(result.user);
+            navigate(location?.state ? location.state : "/")
+            
         })
         .catch(error => {
             console.error(error)

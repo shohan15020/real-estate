@@ -7,7 +7,7 @@ const Home = () => {
     
     return (
         <div>
-            <Banner  className=' border border-red-500'></Banner>
+            <Banner  className=' border border-red-500 '></Banner>
             <AllProperty properties={properties}></AllProperty>
         </div>
     );

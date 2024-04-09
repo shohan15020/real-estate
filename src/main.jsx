@@ -14,6 +14,7 @@ import Register from './Pages/Register/Register.jsx';
 import FirebaseProvider from './Firebase/FirebaseProvider.jsx';
 import SinglePropertyDetail from './Pages/singlePropertyDetail/SinglePropertyDetail.jsx';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes.jsx';
+import PriviteRoutes2 from './components/PrivateRoutes/PriviteRoutes2.jsx';
 
 
 
@@ -44,7 +45,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'updateProfile',
-        element: <UpdateProfile></UpdateProfile>
+        element: <PriviteRoutes2>
+          <UpdateProfile></UpdateProfile>
+        </PriviteRoutes2>
       },
       {
         path: '/login',

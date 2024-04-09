@@ -2,13 +2,16 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
-import { Link } from "react-router-dom";
+import { Link ,useLocation, useNavigate} from "react-router-dom";
 
 const Register = () => {
     // show password icon
     const [showPass, setShowPass] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser , githubLogin, googleLogin} = useContext(AuthContext);
 
+    const location = useLocation()
+    console.log('location', location);
+    const navigate = useNavigate()
 
     const {
         register,
@@ -17,18 +20,34 @@ const Register = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        const { email, password } = data;
+        const { email, password,} = data;
 
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                if(result.user){
+                    
+                    navigate(location?.state ? location.state : "/")
+                }
+                
             })
             .catch(error => {
                 console.error(error)
             })
     }
 
+    // social login
+    const handleSocialLogin = (social) =>{
+        social()
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.error(error)
+        })
+
+    }
 
     return (
         <div className=" min-h-screen bg-base-200 mb-12">
@@ -103,6 +122,24 @@ const Register = () => {
                     <div className="px-8 flex justify-between">
                         <p>Already Have Account?</p>
                         <Link to="/login" className="text-blue-700 underline">Login Now</Link>
+                    </div>
+
+
+                    <div className="divider">continue with</div>
+                    <div className="flex justify-around">
+                        <button
+                            onClick={() => handleSocialLogin(googleLogin)}
+                            className="btn btn-primary btn-sm btn-outline"
+                        >
+                            Google
+                        </button>
+                        <button
+                            onClick={() => handleSocialLogin(githubLogin)}
+                            className="btn btn-secondary btn-sm btn-outline"
+                        >
+                            Github
+                        </button>
+                        
                     </div>
 
                 </div>

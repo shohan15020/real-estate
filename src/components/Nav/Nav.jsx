@@ -1,14 +1,28 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
+import { HiHome } from "react-icons/hi2";
 
 const Nav = () => {
 
     const Links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/updateProfile">Update Profile</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
-        <li><NavLink to="/Login">Login</NavLink></li>
+        <li>
+            <NavLink to="/"className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+            Home</NavLink>
+        </li>
+
+        <li>
+            <NavLink to="/updateProfile" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>Update Profile</NavLink>
+        </li>
+
+        <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+
+            Contact
+        </NavLink></li>
+
+        <li><NavLink to="/Login" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+            Login
+        </NavLink></li>
     </>
 
     const { logout, user } = useContext(AuthContext);
@@ -25,7 +39,7 @@ const Nav = () => {
                             {Links}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost font-bold normal-case text-3xl">GLASSES</Link>
+                    <Link to='/' className="flex items-center md:font-bold  text-xl md:text-3xl uppercase"><HiHome className="text-primary" />nestle</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -38,21 +52,23 @@ const Nav = () => {
                 <div className="navbar-end">
 
                     {
-                        user ? <div className="dropdown dropdown-end flex justify-center items-center">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        user ? <div className="dropdown dropdown-end flex justify-center items-center gap-2">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar hover:ring-2  hover:ring-green-500">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL || "https://i.ibb.co/y0yrnYQ/1681283571946.jpg"}
+                                    <img  src={user?.photoURL || "https://i.ibb.co/fYRGNg6/profile.jpg"}
 
                                         title={user?.displayName || 'Name not found'}
-                                        alt="User avatar" 
+                                        alt="User avatar"
                                     />
 
                                 </div>
                             </label>
 
-                            <button onClick={logout} className="btn btn-sm  btn-ghost">
+                            <button onClick={logout} className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">
                                 Logout
                             </button>
+
+                            {/* <button className="font-bold text-white text-lg md:text-xl md:py-4 md:px-6 py-1 px-2 rounded-lg bg-[#23BE0A]">Sign In</button> */}
 
                             {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
@@ -66,7 +82,7 @@ const Nav = () => {
                         </div>
                             :
                             <Link to='/login'>
-                                <button className="btn btn-sm  btn-ghost">Login</button>
+                                <button className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">Login</button>
                             </Link>
                     }
                 </div>
