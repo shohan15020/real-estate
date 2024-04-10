@@ -2,12 +2,13 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import { createContext, useEffect, useState } from "react";
 import { auth } from "./Firebase.config";
 
+
 export const AuthContext = createContext(null);
 
 const FirebaseProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    console.log(10,user);
+    console.log(10, user);
     const [loading, setLoading] = useState(true)
 
     // social provider
@@ -34,24 +35,32 @@ const FirebaseProvider = ({ children }) => {
     //     .catch(error => console.error("Error updating profile: ", error));
 
     // }
-    const updateUser = (name, photoURL) => {
-        return new Promise((resolve, reject) => {
-            auth.currentUser
-                .updateProfile({
-                    displayName: name,
-                    photoURL: photoURL,
-                })
-                .then(() => {
-                    setUser(auth.currentUser);
-                    resolve();
-                })
-                .catch((error) => {
-                    reject(error);
-                });
-        });
-    };
+    // const updateUser = (name, photoURL) => {
+    //     return new Promise((resolve, reject) => {
+    //         auth.currentUser
+    //             .updateProfile({
+    //                 displayName: name,
+    //                 photoURL: photoURL,
+    //             })
+    //             .then(() => {
+    //                 setUser(auth.currentUser);
+    //                 resolve();
+    //             })
+    //             .catch((error) => {
+    //                 reject(error);
+    //             });
+    //     });
+    // };
+    // update user profile
+    const updateUser = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: image
+          })
+          
+    }
 
-    
+
 
     // sign in user
     const signIn = (email, password) => {
@@ -91,7 +100,7 @@ const FirebaseProvider = ({ children }) => {
         }
     }, [])
 
-    const AuthInfo = { createUser, signIn, googleLogin, githubLogin, user, logout, loading , updateUser}
+    const AuthInfo = { createUser, signIn, googleLogin, githubLogin, user, logout, loading, updateUser }
     return (
         <AuthContext.Provider value={AuthInfo}>
             {children}

@@ -15,7 +15,7 @@ import FirebaseProvider from './Firebase/FirebaseProvider.jsx';
 import SinglePropertyDetail from './Pages/singlePropertyDetail/SinglePropertyDetail.jsx';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes.jsx';
 import PriviteRoutes2 from './components/PrivateRoutes/PriviteRoutes2.jsx';
-
+import { Toaster }  from 'react-hot-toast';
 
 
 
@@ -27,15 +27,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader:  () => fetch("/AllProperty.json")
-        
+        loader: () => fetch("/AllProperty.json")
+
       },
       {
         path: "/singleProperty/:id",
         element: <PrivateRoutes>
           <SinglePropertyDetail></SinglePropertyDetail>
         </PrivateRoutes>,
-        
+
         loader: () => fetch("/AllProperty.json")
         // loader: ({ params }) => fetch(`/${link}/${params.id}`),
       },
@@ -64,6 +64,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <FirebaseProvider>
+      <div><Toaster position='top-right'/></div>
       <RouterProvider router={router} />
     </FirebaseProvider>
   </React.StrictMode>,

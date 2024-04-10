@@ -2,17 +2,21 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
-import { Link ,useLocation, useNavigate} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 const Login = () => {
     // show password icon
     const [showPass, setShowPass] = useState(false);
-    const { signIn , googleLogin, githubLogin} = useContext(AuthContext);
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
+    // location
     const location = useLocation()
     console.log('location', location);
     const navigate = useNavigate()
 
+    // form
     const {
         register,
         handleSubmit,
@@ -22,14 +26,23 @@ const Login = () => {
     const onSubmit = (data) => {
         const { email, password } = data;
         
+        if (password.length < 6) {
+            return setError('password kom')
+        }
 
+        if (!/[a-z]/.test(password)) {
+            return setError('lowercase koro')
+        }
+        if (!/[A-Z]/.test(password)) {
+            return setError('uppercase koro')
+        }
 
         signIn(email, password)
             .then(result => {
-                
-                if(result.user){
-                    
-                    navigate("/")
+
+                if (result.user) {
+                    toast.success("Login hoice !")
+                    navigate(location?.state || "/")
                 }
             })
             .catch(error => {
@@ -39,41 +52,48 @@ const Login = () => {
 
 
     // social login
-    const handleSocialLogin = (social) =>{
+    const handleSocialLogin = (social, name) => {
         social()
-        .then(result => {
-            console.log(result.user);
-            navigate(location?.state ? location.state : "/")
-            
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success(`Login with ${name}`)
+                navigate(location?.state ? location.state : "/")
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
     }
 
     return (
-        <div className=" min-h-screen bg-base-200 mb-12">
+        <div className=" min-h-[80%] bg-base-200 mb-5">
+
+
+
+
             <div className="hero-content flex-col ">
-                <h1 className="text-5xl font-bold">Login now!</h1>
+                <h1 className="text-5xl font-bold">Login Now!</h1>
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
-
+                        {/* email */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required {...register("email", { required: true })} />
+                            <input type="text" placeholder="email" className="input input-bordered"
+                                {...register("email", { required: true })}
+                            />
 
-                            {errors.email && <span className="text-red-600">This field is required</span>}
+                            {errors.email && <span className='text-red-500'>This field is required</span>}
                         </div>
 
-
-
-                        <div className="form-control">
+                       
+                        {/* password */}
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
@@ -82,7 +102,7 @@ const Login = () => {
 
                                     placeholder="Password"
                                     className="input input-bordered w-full"
-                                    {...register("password", )}
+                                    {...register("password", { required: true })}
 
                                 />
                                 <span onClick={() => setShowPass(!showPass)} className=" font-bold text-3xl right-3 absolute ">
@@ -92,12 +112,13 @@ const Login = () => {
                                     }
 
                                 </span>
-                                {errors.password && <span>This field is required</span>}
                             </div>
 
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+
+
+                            {/* {errors.password && <span className='text-red-500'>This field is required</span>} */}
+                            <p className="text-red-500">{error}</p>
+
                         </div>
 
                         <div className="form-control mt-6">
@@ -106,27 +127,29 @@ const Login = () => {
 
                     </form>
 
-                     <div className="px-8 flex justify-between">
-                        <p>New here?</p>
+                    <div className="px-8 flex justify-between">
+                        <p>Already Have Account?</p>
                         <Link to="/register" className="text-blue-700 underline">Register Now</Link>
-                     </div>
+                    </div>
+
 
                     <div className="divider">continue with</div>
                     <div className="flex justify-around">
                         <button
-                            onClick={() => handleSocialLogin(googleLogin)}
+                            onClick={() => handleSocialLogin(googleLogin, "google")}
                             className="btn btn-primary btn-sm btn-outline"
                         >
                             Google
                         </button>
                         <button
-                            onClick={() => handleSocialLogin(githubLogin)}
+                            onClick={() => handleSocialLogin(githubLogin , "github")}
                             className="btn btn-secondary btn-sm btn-outline"
                         >
                             Github
                         </button>
                         
                     </div>
+
                 </div>
             </div>
         </div>

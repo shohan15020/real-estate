@@ -2,16 +2,20 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
-import { Link ,useLocation, useNavigate} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 const Register = () => {
     // show password icon
     const [showPass, setShowPass] = useState(false);
-    const { createUser , githubLogin, googleLogin} = useContext(AuthContext);
+    const { createUser, logout } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const location = useLocation()
     console.log('location', location);
     const navigate = useNavigate()
+
+
 
     const {
         register,
@@ -20,37 +24,56 @@ const Register = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        const { email, password,} = data;
+        const { email, password, } = data;
 
+        if (password.length < 6) {
+            return setError('password kom')
+        }
+
+        if (!/[a-z]/.test(password)) {
+            return setError('lowercase koro')
+        }
+        if (!/[A-Z]/.test(password)) {
+            return setError('uppercase koro')
+        }
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                if(result.user){
-                    
-                    navigate(location?.state ? location.state : "/")
+                if (result.user) {
+                    toast.success("Register successfully!")
+                    logout()
+                    navigate("/login")
                 }
-                
+
             })
             .catch(error => {
                 console.error(error)
             })
+
+
     }
+
+
 
     // social login
-    const handleSocialLogin = (social) =>{
-        social()
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.error(error)
-        })
+    // const handleSocialLogin = (social) =>{
+    //     social()
+    //     .then(result => {
+    //         console.log(result.user);
+    //     })
+    //     .catch(error => {
+    //         console.error(error)
+    //     })
 
-    }
+    // }
 
     return (
-        <div className=" min-h-screen bg-base-200 mb-12">
+        <div className=" min-h-[80%] bg-base-200 mb-5">
+
+            
+
+
             <div className="hero-content flex-col ">
                 <h1 className="text-5xl font-bold">Resister Now!</h1>
 
@@ -58,35 +81,44 @@ const Register = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
+                        {/* name */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Your name" className="input input-bordered" required {...register("name", { required: true })} />
+                            <input type="text" placeholder="name" className="input input-bordered"
+                                {...register("name", { required: true })}
+                            />
 
-                            {errors.name && <span >This field is required</span>}
+                            {errors.name && <span className='text-red-500'>This field is required</span>}
                         </div>
 
-
+                        {/* email */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required {...register("email", { required: true })} />
+                            <input type="text" placeholder="email" className="input input-bordered"
+                                {...register("email", { required: true })}
+                            />
 
-                            {errors.email && <span>This field is required</span>}
+                            {errors.email && <span className='text-red-500'>This field is required</span>}
                         </div>
 
+                        {/* photo */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo Url</span>
+                                <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" placeholder="Photo url" className="input input-bordered" {...register("photo")} />
+                            <input type="text" placeholder="photo" className="input input-bordered"
+                                {...register("photo", { required: true })}
+                            />
 
-                            {errors.photo && <span>This field is required</span>}
+                            {errors.photo && <span className='text-red-500'>This field is required</span>}
                         </div>
 
-                        <div className="form-control">
+                        {/* password */}
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
@@ -105,12 +137,13 @@ const Register = () => {
                                     }
 
                                 </span>
-                                {errors.password && <span>This field is required</span>}
                             </div>
 
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+
+
+                            {/* {errors.password && <span className='text-red-500'>This field is required</span>} */}
+                            <p className="text-red-500">{error}</p>
+
                         </div>
 
                         <div className="form-control mt-6">
@@ -125,7 +158,7 @@ const Register = () => {
                     </div>
 
 
-                    <div className="divider">continue with</div>
+                    {/* <div className="divider">continue with</div>
                     <div className="flex justify-around">
                         <button
                             onClick={() => handleSocialLogin(googleLogin)}
@@ -140,7 +173,7 @@ const Register = () => {
                             Github
                         </button>
                         
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
