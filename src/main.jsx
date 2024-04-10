@@ -16,6 +16,7 @@ import SinglePropertyDetail from './Pages/singlePropertyDetail/SinglePropertyDet
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes.jsx';
 import PriviteRoutes2 from './components/PrivateRoutes/PriviteRoutes2.jsx';
 import { Toaster }  from 'react-hot-toast';
+import Error from './Pages/Error.jsx';
 
 
 
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -41,7 +43,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <Contact></Contact>
+        element: <PriviteRoutes2>
+          <Contact></Contact>
+        </PriviteRoutes2>
       },
       {
         path: 'updateProfile',

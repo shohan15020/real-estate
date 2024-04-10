@@ -29,8 +29,8 @@ const UpdateProfile = () => {
         // setImagePreview(url); // Update image preview
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        
 
         
         updateUser(name, photoURL)
@@ -63,12 +63,14 @@ const UpdateProfile = () => {
 
                         <form onSubmit={handleSubmit} className='space-y-3'>
 
+                            <h2 className='text-center text-xl my-5 rounded-2xl border-primary border-x-2'>{user.email}</h2>
+
                             <div className='flex flex-col justify-center'>
 
                                 <label className='text-left text-lg mb-1 '>
                                     Name:
                                 </label>
-                                <input type="text" className="input input-bordered input-success border-green-500  w-full " placeholder="Name" value={name} onChange={handleNameChange} />
+                                <input type="text" className="input input-bordered input-success border-green-500 border-2 w-full " placeholder="Name" value={name} onChange={handleNameChange} />
                             </div>
 
 
@@ -77,7 +79,7 @@ const UpdateProfile = () => {
                                 <label className='text-left  text-lg mb-1 '>
                                     Photo URL:
                                 </label>
-                                <input type="text" className="input input-bordered input-success border-green-500 w-full " placeholder="Photo url" value={photoURL} onChange={handlePhotoURLChange} />
+                                <input type="text" className="input input-bordered input-success border-green-500 w-full border-2" placeholder="Photo url" value={photoURL} onChange={handlePhotoURLChange} />
                             </div>
 
                             <button type="submit" className='btn btn-secondary'>Save Changes</button>

@@ -7,8 +7,7 @@ const Property = ({ property }) => {
     const {  image , segment_name, facilities, status, price, description, estate_title} = property
 
     return (
-        <div data-aos="fade-up"
-        data-aos-duration="3000"  className="max-w-xs bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden mx-auto">
+        <div data-aos="fade-right"   className="max-w-xs bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden mx-auto">
             <img className="w-full h-56 object-cover object-center" src={image} alt="Townhouse Image" />
 
             <div className="py-4 px-6">

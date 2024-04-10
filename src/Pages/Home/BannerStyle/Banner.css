@@ -5,10 +5,7 @@ body {
   height: 100%;
 }
 
-.swiper {
-    border: 2px solid blue;
 
-}
 .swiper-slide img {
   display: block;
   width: 100%;

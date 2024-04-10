@@ -69,15 +69,16 @@ const Register = () => {
     // }
 
     return (
-        <div className=" min-h-[80%] bg-base-200 mb-5">
+        <div className="min-h-[50%]  mb-5 bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/bmS52r0/pexels-alex-staudinger-1732414.jpg ')` }}>
 
             
 
 
             <div className="hero-content flex-col ">
-                <h1 className="text-5xl font-bold">Resister Now!</h1>
+                
 
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card shrink-0 w-full  max-w-md shadow-2xl   backdrop-blur-md bg-white/30">
+                <h1 className="text-5xl font-bold text-center  mt-4 ">Resister Now!</h1>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
@@ -147,12 +148,12 @@ const Register = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn btn-primary">Register</button>
+                            <button type="submit" className="font-medium text-white text-lg md:text-xl md:pb-2 md:px-4 py-1 px-2 rounded-lg bg-primary text-center">Register</button>
                         </div>
 
                     </form>
 
-                    <div className="px-8 flex justify-between">
+                    <div className="px-8 flex justify-between mb-5">
                         <p>Already Have Account?</p>
                         <Link to="/login" className="text-blue-700 underline">Login Now</Link>
                     </div>
@@ -182,3 +183,22 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
+
+
+
+
+
+
+// https://i.ibb.co/7WXyC4F/pexels-pixabay-280221.jpg
+// https://i.ibb.co/WG98ksL/pexels-curtis-adams-3288104.jpg
+// https://i.ibb.co/gzg0XyG/pexels-pixabay-276554.jpg
+// https://i.ibb.co/xHqvXK7/pexels-pixabay-280222.jpg
+// https://i.ibb.co/ZHbJJnq/pexels-pixabay-208736.jpg
+// https://i.ibb.co/frxsRz0/pexels-pixabay-259588.jpg
+// https://i.ibb.co/7GkSrbV/pexels-binyamin-mellish-1396122.jpg
+// https://i.ibb.co/wLRrh14/pexels-expect-best-323780.jpg
+// https://i.ibb.co/rtpQ2Yw/pexels-pixabay-210617.jpg
