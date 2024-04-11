@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 // import { FaGithub, FaGoogle } from "react-icons/fa";
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     // show password icon
@@ -71,14 +72,13 @@ const Login = () => {
     return (
         <div className="min-h-[50%]  mb-5 bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/rtpQ2Yw/pexels-pixabay-210617.jpg ')` }}>
 
-            {/* https://i.ibb.co/GdsXLXx/pexels-vecislavas-popa-1571463.jpg
-https://i.ibb.co/bmS52r0/pexels-alex-staudinger-1732414.jpg
-https://i.ibb.co/rtpQ2Yw/pexels-pixabay-210617.jpg */}
-
+            <Helmet>
+                <title>My-Home-Estate | Login</title>
+            </Helmet>
             <div className="hero-content flex-col ">
 
                 <div className="card shrink-0 w-full max-w-md shadow-2xl   backdrop-blur-md bg-white/30">
-                    <h1 className="text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__hinge animation-duration: 2s">Login Now!</h1>
+                    <h1 className="text-5xl font-bold text-center mb-4 mt-4 animate__animated animate__backInRight animation-duration: 2s">Login Now!</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
 
                         {/* email */}

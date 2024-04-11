@@ -4,6 +4,7 @@ import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     // show password icon
@@ -71,14 +72,16 @@ const Register = () => {
     return (
         <div className="min-h-[50%]  mb-5 bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/bmS52r0/pexels-alex-staudinger-1732414.jpg ')` }}>
 
-            
+            <Helmet>
+                <title>My-Home-Estate | Register</title>
+            </Helmet>
 
 
             <div className="hero-content flex-col ">
-                
+
 
                 <div className="card shrink-0 w-full  max-w-md shadow-2xl   backdrop-blur-md bg-white/30">
-                <h1 className="text-5xl font-bold text-center  mt-4 ">Resister Now!</h1>
+                    <h1 className="text-5xl font-bold text-center  mt-4 animate__animated animate__backInRight animation-duration: 2s">Resister Now!</h1>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 

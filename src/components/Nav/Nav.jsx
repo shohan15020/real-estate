@@ -7,8 +7,8 @@ const Nav = () => {
 
     const Links = <>
         <li>
-            <NavLink to="/"className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
-            Home</NavLink>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+                Home</NavLink>
         </li>
 
         <li>
@@ -26,7 +26,8 @@ const Nav = () => {
     </>
 
     const { logout, user } = useContext(AuthContext);
-    console.log(user);
+    console.log(29, user
+    );
     return (
         <>
             <div className="navbar bg-base-100">
@@ -35,7 +36,7 @@ const Nav = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
                             {Links}
                         </ul>
                     </div>
@@ -55,9 +56,9 @@ const Nav = () => {
                         user ? <div className="dropdown dropdown-end flex justify-center items-center gap-2">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar hover:ring-2  hover:ring-green-500">
                                 <div className="w-10 rounded-full">
-                                    <img  src={user?.photoURL || "https://i.ibb.co/fYRGNg6/profile.jpg"}
+                                    <img src={user?.photoURL || "https://i.ibb.co/fYRGNg6/profile.jpg"}
 
-                                        title={user?.displayName || 'Name not found'}
+                                        title={(user?.displayName || user.email) || 'Name not found'}
                                         alt="User avatar"
                                     />
 
@@ -68,17 +69,7 @@ const Nav = () => {
                                 Logout
                             </button>
 
-                            {/* <button className="font-bold text-white text-lg md:text-xl md:py-4 md:px-6 py-1 px-2 rounded-lg bg-[#23BE0A]">Sign In</button> */}
 
-                            {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
-                                    <button className="btn btn-sm  btn-ghost">{user?.displayName || 'user name not found'}</button>
-
-                                </li>
-                                <li>
-                                    
-                                </li>
-                            </ul> */}
                         </div>
                             :
                             <Link to='/login'>
@@ -87,6 +78,8 @@ const Nav = () => {
                     }
                 </div>
             </div>
+
+            
         </>
     );
 };

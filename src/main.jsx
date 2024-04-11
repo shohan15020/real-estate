@@ -15,9 +15,9 @@ import FirebaseProvider from './Firebase/FirebaseProvider.jsx';
 import SinglePropertyDetail from './Pages/singlePropertyDetail/SinglePropertyDetail.jsx';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes.jsx';
 import PriviteRoutes2 from './components/PrivateRoutes/PriviteRoutes2.jsx';
-import { Toaster }  from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import Error from './Pages/Error.jsx';
-
+import {  HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
@@ -68,8 +68,12 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <FirebaseProvider>
-      <div><Toaster position='top-right'/></div>
-      <RouterProvider router={router} />
+
+      <HelmetProvider>
+        <div><Toaster position='top-right' /></div>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+
     </FirebaseProvider>
   </React.StrictMode>,
 )

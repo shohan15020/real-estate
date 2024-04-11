@@ -1,9 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
 const Contact = () => {
     return (
-        <section  className="py-6  border-2 border-red-500 min-h-[50%]  mb-5 bg-cover bg-center " 
+        <section  className="py-6   min-h-[50%]  mb-5 bg-cover bg-center " 
 
         style={{backgroundImage: `url('https://i.ibb.co/rtpQ2Yw/pexels-pixabay-210617.jpg')`}}
         >
+            <Helmet>
+                <title>My-Home-Estate | Contact</title>
+            </Helmet>
             
             <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x ">
 
@@ -33,16 +38,16 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <form  data-aos="fade-left" className="flex flex-col py-6 space-y-6 md:px-6 backdrop-blur-xl bg-white/30 ">
-                    <label className="block">
+                <form  data-aos="fade-left" className="border-none rounded-lg flex flex-col py-6 space-y-6 md:px-6 px-2 backdrop-blur-xl bg-white/30 ">
+                    <label className="block space-y-2">
                         <span className="mb-1">Full name</span>
                         <input type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 p-2" />
                     </label>
-                    <label className="block">
+                    <label className="block space-y-2">
                         <span className="mb-1">Email address</span>
                         <input type="email" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100 p-2" />
                     </label>
-                    <label className="block">
+                    <label className="block space-y-2">
                         <span className="mb-1">Message</span>
                         <textarea rows="3" className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"></textarea>
                     </label>
