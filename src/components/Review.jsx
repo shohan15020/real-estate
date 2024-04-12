@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 const Review = () => {
     return (
         <div className="mb-12">
-            <div className="text-center mb-12 mx-auto w-3/4 md:w-full">
+            <div className="text-center mb-12 mx-auto w-3/4 ">
                 <h2 className="font-bold text-4xl mb-3 animate__animated animate__bounce" >Customer reviews</h2>
                 <p>Encourage customer reviews on social media by creating communities where customers are empowered to share their experiences or purchases properties</p>
             </div>
@@ -11,7 +11,7 @@ const Review = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* review 1 */}
                 <div data-aos="fade-down" className="container flex flex-col w-full max-w-lg  mx-auto divide-y shadow-lg rounded-lg overflow-hidden border-2">
-                    <div className="p-4 pb-0  ">
+                    <div className="p-4 pb-0">
                         <div className="mb-3">
                             <img src="https://media.istockphoto.com/id/1136413215/photo/young-man-at-street-market.webp?b=1&s=170667a&w=0&k=20&c=lQxEqo4oY2z9-yUVMFdsJPYpMNRgOhi8-sFCz8Wt-cg=" alt="Reviewer's Name" className="object-cover w-12 h-12 rounded-full " />
                         </div>

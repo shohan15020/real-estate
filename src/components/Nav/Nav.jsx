@@ -4,6 +4,8 @@ import { AuthContext } from "../../Firebase/FirebaseProvider";
 import { HiHome } from "react-icons/hi2";
 
 const Nav = () => {
+    const { logout, user } = useContext(AuthContext);
+    
 
     const Links = <>
         <li>
@@ -20,14 +22,12 @@ const Nav = () => {
             Contact
         </NavLink></li>
 
-        <li><NavLink to="/team" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+        {user && <li><NavLink to="/team" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
             Our team
-        </NavLink></li>
+        </NavLink></li>}
     </>
 
-    const { logout, user } = useContext(AuthContext);
-    console.log(29, user
-    );
+    
     return (
         <>
             <div className="navbar bg-base-100">

@@ -89,7 +89,7 @@ const Login = () => {
                                 {...register("email", { required: true })}
                             />
 
-                            {errors.email && <span className='text-red-500'>This field is required</span>}
+                            {errors.email && <span className='text-red-700'>This field is required</span>}
                         </div>
 
 
@@ -116,7 +116,7 @@ const Login = () => {
                             </div>
 
 
-                            <p className="text-red-500">{error}</p>
+                            <p className="text-red-700">{error}</p>
 
                         </div>
 
