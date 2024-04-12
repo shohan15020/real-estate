@@ -45,15 +45,3 @@ Property.propTypes = {
     property:PropTypes.object
 }
 export default Property;
-
-
-{/* <div className="card  bg-base-100 shadow-xl ">
-    <figure><img className="w-full h-1/2 object- rounded-lg" src={image} alt="Shoes" /></figure>
-    <div className="card-body">
-        <h2 className="card-title">{bookName}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-            <Link className="btn btn-neutral btn-sm" to={`singleProperty/${property.id}`}>view</Link>
-        </div>
-    </div>
-</div> */}

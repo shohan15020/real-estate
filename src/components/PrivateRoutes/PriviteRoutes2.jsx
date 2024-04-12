@@ -6,7 +6,6 @@ import { AuthContext } from "../../Firebase/FirebaseProvider";
 const PriviteRoutes2 = ({children}) => {
     const { user} = useContext(AuthContext)
 
-    
     if (user) {
         return children
     }

@@ -5,7 +5,7 @@ const Review = () => {
         <div className="mb-12">
             <div className="text-center mb-12 mx-auto w-3/4 md:w-full">
                 <h2 className="font-bold text-4xl mb-3 animate__animated animate__bounce" >Customer reviews</h2>
-                <p>Encourage customer reviews on social media by creating communities where customers are empowered to share their experiences or purchases</p>
+                <p>Encourage customer reviews on social media by creating communities where customers are empowered to share their experiences or purchases properties</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
