@@ -1,8 +1,24 @@
-# React + Vite
+# My Home Estate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Link
 
-Currently, two official plugins are available:
+- [https://github.com/programming-hero-web-course-4/b9a8-book-vibe-shohan15020](https://github.com/programming-hero-web-course-4/b9a8-book-vibe-shohan15020).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Npm Package Name list:
+- AOS Package,
+- Animate.css,
+- React Hook form,
+- Swiper slider
+
+## Features & Caracteristics
+
+- **Easy Navigation**: Simple design for Home, Update Profile, Contact, and Our Team sections.
+- **Property Listings**: Categorized property listings for sale or rent.
+- **Buyer/Seller Review**: Good Review form buyers and sellers.
+- **Contact Options**: Multiple channels for client contact.
+- **User Registration and Login**: Secure login for accessing estate listings.
+
+## License
+
+Specify the project's license.
+
