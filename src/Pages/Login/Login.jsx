@@ -4,12 +4,11 @@ import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
-// import { FaGithub, FaGoogle } from "react-icons/fa";
 import 'animate.css';
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    // show password icon
+    
     const [showPass, setShowPass] = useState(false);
     const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -30,27 +29,27 @@ const Login = () => {
         const { email, password } = data;
 
         if (password.length < 6) {
-            return setError('password kom')
+            return setError('Your password must be at least 6 characters')
         }
 
         if (!/[a-z]/.test(password)) {
-            return setError('lowercase koro')
+            return setError('Your password must contain at least one small letter')
         }
         if (!/[A-Z]/.test(password)) {
-            return setError('uppercase koro')
+            return setError('Your password must contain at least one Capital letter.')
         }
 
         signIn(email, password)
             .then(result => {
 
                 if (result.user) {
-                    toast.success("Login hoice !")
+                    toast.success("Login successfully!")
                     navigate(location?.state || "/")
                 }
             })
             .catch(error => {
                 console.error(error)
-            })
+        })
     }
 
 
@@ -117,8 +116,6 @@ const Login = () => {
                             </div>
 
 
-
-                            {/* {errors.password && <span className='text-red-500'>This field is required</span>} */}
                             <p className="text-red-500">{error}</p>
 
                         </div>
@@ -159,13 +156,6 @@ const Login = () => {
                 </div>
             </div>
 
-            {/* <div className="h-[400px] w-[400px] backdrop-blur-md bg-white/30" >
-
-            </div> */}
-
-            {/* <div className="bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/7pFfvqg/bg.jpg')` }}>
-               
-            </div> */}
         </div>
     );
 };

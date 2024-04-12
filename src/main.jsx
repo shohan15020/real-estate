@@ -18,6 +18,7 @@ import PriviteRoutes2 from './components/PrivateRoutes/PriviteRoutes2.jsx';
 import { Toaster } from 'react-hot-toast';
 import Error from './Pages/Error.jsx';
 import {  HelmetProvider } from 'react-helmet-async';
+import OurTeam from './OurTeam/OurTeam.jsx';
 
 
 const router = createBrowserRouter([
@@ -33,22 +34,26 @@ const router = createBrowserRouter([
 
       },
       {
+        path: '/contact',
+        element: <Contact></Contact>
+        
+      },
+      {
         path: "/singleProperty/:id",
         element: <PrivateRoutes>
           <SinglePropertyDetail></SinglePropertyDetail>
         </PrivateRoutes>,
 
         loader: () => fetch("/AllProperty.json")
-        // loader: ({ params }) => fetch(`/${link}/${params.id}`),
       },
       {
-        path: 'contact',
+        path: '/team',
         element: <PriviteRoutes2>
-          <Contact></Contact>
+          <OurTeam></OurTeam>
         </PriviteRoutes2>
       },
       {
-        path: 'updateProfile',
+        path: '/updateProfile',
         element: <PriviteRoutes2>
           <UpdateProfile></UpdateProfile>
         </PriviteRoutes2>

@@ -20,8 +20,8 @@ const Nav = () => {
             Contact
         </NavLink></li>
 
-        <li><NavLink to="/Login" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
-            Login
+        <li><NavLink to="/team" className={({ isActive }) => isActive ? 'border-2 border-primary text-primary rounded-lg font-bold' : 'font-bold'}>
+            Our team
         </NavLink></li>
     </>
 

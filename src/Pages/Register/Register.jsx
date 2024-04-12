@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-    // show password icon
+    
     const [showPass, setShowPass] = useState(false);
     const { createUser, logout } = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -28,14 +28,14 @@ const Register = () => {
         const { email, password, } = data;
 
         if (password.length < 6) {
-            return setError('password kom')
+            return setError('Your password must be at least 6 characters')
         }
 
         if (!/[a-z]/.test(password)) {
-            return setError('lowercase koro')
+            return setError('Your password must contain at least one small letter')
         }
         if (!/[A-Z]/.test(password)) {
-            return setError('uppercase koro')
+            return setError('Your password must contain at least one Capital letter.')
         }
 
         createUser(email, password)
@@ -55,19 +55,6 @@ const Register = () => {
 
     }
 
-
-
-    // social login
-    // const handleSocialLogin = (social) =>{
-    //     social()
-    //     .then(result => {
-    //         console.log(result.user);
-    //     })
-    //     .catch(error => {
-    //         console.error(error)
-    //     })
-
-    // }
 
     return (
         <div className="min-h-[50%]  mb-5 bg-cover bg-center " style={{ backgroundImage: `url('https://i.ibb.co/bmS52r0/pexels-alex-staudinger-1732414.jpg ')` }}>
@@ -143,9 +130,6 @@ const Register = () => {
                                 </span>
                             </div>
 
-
-
-                            {/* {errors.password && <span className='text-red-500'>This field is required</span>} */}
                             <p className="text-red-500">{error}</p>
 
                         </div>
@@ -161,24 +145,6 @@ const Register = () => {
                         <Link to="/login" className="text-blue-700 underline">Login Now</Link>
                     </div>
 
-
-                    {/* <div className="divider">continue with</div>
-                    <div className="flex justify-around">
-                        <button
-                            onClick={() => handleSocialLogin(googleLogin)}
-                            className="btn btn-primary btn-sm btn-outline"
-                        >
-                            Google
-                        </button>
-                        <button
-                            onClick={() => handleSocialLogin(githubLogin)}
-                            className="btn btn-secondary btn-sm btn-outline"
-                        >
-                            Github
-                        </button>
-                        
-                    </div> */}
-
                 </div>
             </div>
         </div>
@@ -186,22 +152,3 @@ const Register = () => {
 };
 
 export default Register;
-
-
-
-
-
-
-
-
-
-
-// https://i.ibb.co/7WXyC4F/pexels-pixabay-280221.jpg
-// https://i.ibb.co/WG98ksL/pexels-curtis-adams-3288104.jpg
-// https://i.ibb.co/gzg0XyG/pexels-pixabay-276554.jpg
-// https://i.ibb.co/xHqvXK7/pexels-pixabay-280222.jpg
-// https://i.ibb.co/ZHbJJnq/pexels-pixabay-208736.jpg
-// https://i.ibb.co/frxsRz0/pexels-pixabay-259588.jpg
-// https://i.ibb.co/7GkSrbV/pexels-binyamin-mellish-1396122.jpg
-// https://i.ibb.co/wLRrh14/pexels-expect-best-323780.jpg
-// https://i.ibb.co/rtpQ2Yw/pexels-pixabay-210617.jpg

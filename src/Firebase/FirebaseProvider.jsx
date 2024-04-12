@@ -20,37 +20,6 @@ const FirebaseProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
-
-    // update user 
-    // const updateUser = (name, image) => {
-
-    //     updateProfile(auth.currentUser, {
-    //         displayName: name,
-    //         photoURL: image
-    //     })
-    //     .then(() => {
-    //         setUser(auth.currentUser);
-    //         // Update navbar or any other component here
-    //     })
-    //     .catch(error => console.error("Error updating profile: ", error));
-
-    // }
-    // const updateUser = (name, photoURL) => {
-    //     return new Promise((resolve, reject) => {
-    //         auth.currentUser
-    //             .updateProfile({
-    //                 displayName: name,
-    //                 photoURL: photoURL,
-    //             })
-    //             .then(() => {
-    //                 setUser(auth.currentUser);
-    //                 resolve();
-    //             })
-    //             .catch((error) => {
-    //                 reject(error);
-    //             });
-    //     });
-    // };
     // update user profile
     const updateUser = (name, image) => {
         return updateProfile(auth.currentUser, {
@@ -59,7 +28,6 @@ const FirebaseProvider = ({ children }) => {
           })
           
     }
-
 
 
     // sign in user

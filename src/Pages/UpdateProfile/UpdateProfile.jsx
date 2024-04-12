@@ -7,18 +7,20 @@ import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { RiAlertFill } from "react-icons/ri";
 
+
 const UpdateProfile = () => {
+    
     const { user, updateUser } = useContext(AuthContext);
+
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
-    // const [imagePreview, setImagePreview] = useState('');
+
 
     useEffect(() => {
-        // Fetch current user's information and populate the form fields
+        
         if (user) {
             setName(user.displayName || '');
             setPhotoURL(user.photoURL || '');
-
         }
     }, [user]);
 
@@ -29,7 +31,7 @@ const UpdateProfile = () => {
     const handlePhotoURLChange = (e) => {
         const url = e.target.value;
         setPhotoURL(url);
-        // setImagePreview(url); // Update image preview
+        
     };
 
     const handleSubmit = (e) => {
@@ -39,20 +41,21 @@ const UpdateProfile = () => {
         updateUser(name, photoURL)
             .then(() => {
 
-                console.log('Profile updated successfully');
+                window.location.reload();
 
             })
             .catch((error) => {
-                // Handle error
-                console.error("Error updating profile: ", error);
+                
+                console.error(error);
             });
 
         toast.success("Profile updated successfully!")
+        
 
     };
 
     return (
-        <div className='flex flex-col justify-center items-center mb-12'>
+        <div data-aos="fade-down" className='flex flex-col justify-center items-center mb-12 '>
 
             <Helmet>
                 <title>My-Home-Estate | UpdateProfile</title>
