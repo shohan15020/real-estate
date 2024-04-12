@@ -41,7 +41,7 @@ const UpdateProfile = () => {
         updateUser(name, photoURL)
             .then(() => {
 
-                window.location.reload();
+                location.reload();
 
             })
             .catch((error) => {
