@@ -4,7 +4,7 @@
 
 - [https://github.com/programming-hero-web-course-4/b9a8-book-vibe-shohan15020](https://github.com/programming-hero-web-course-4/b9a8-book-vibe-shohan15020).
 
-## 2. Npm Package Name list:
+##  Npm Package Name list:
 - AOS Package,
 - Animate.css,
 - React Hook form,
