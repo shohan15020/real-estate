@@ -65,10 +65,10 @@ const UpdateProfile = () => {
 
                 <Marquee className="border-2 text-white bg-primary ">
                     <RiAlertFill className="ml-4 mr-2 text-red-500"/>
-                    <p>Refresh the page after update... </p>
+                    <p>Update your profile to unlock new features!</p>
                 </Marquee>
 
-                <h2 className="text-xl  font-bold sm:text-2xl text-center my-4">My Profile</h2>
+                <h2 className="text-xl  font-bold sm:text-2xl text-center my-4">Update Profile</h2>
                 {/* 
                 <img src="https://source.unsplash.com/150x150/?portrait?3" alt="" className="w-24 h-24 mx-auto rounded-full  aspect-square ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100" /> */}
 

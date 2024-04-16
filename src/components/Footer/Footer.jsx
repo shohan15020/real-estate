@@ -29,7 +29,11 @@ const Footer = () => {
                 </nav>
                 <div className="flex ">
                     <p>Copyright © 2024 - All right reserved by </p>
-                    <Link to='/' className="flex items-center text-xl justify-center uppercase"><HiHome className="text-primary" />nestle</Link>
+                    <Link to='/' className="flex items-center text-xl justify-center uppercase bg-clip-text text-transparent bg-gradient-to-r from-primary via-green-400 to-blue-400 ">
+                        <HiHome className="text-primary" />
+
+                    nestle
+                    </Link>
                 </div>
             </footer>
         </div>

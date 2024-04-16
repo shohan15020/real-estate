@@ -8,7 +8,7 @@ const Property = ({ property }) => {
     const {  image , segment_name, facilities, status, price, description,} = property
 
     return (
-        <div data-aos="fade-down" className="relative  bg-white  shadow-lg rounded-lg overflow-hidden mx-auto border-2 flex-1">
+        <div data-aos="fade-right" className="relative  bg-white  shadow-lg rounded-lg overflow-hidden mx-auto border-2 flex-1">
             <img className=" w-full h-56 object-cover object-center" src={image} alt="Townhouse Image" />
 
             <span className="absolute px-3 py-1 bg-red-500 text-white rounded-sm uppercase text-xs font-semibold top-0 left-0">{status}</span>

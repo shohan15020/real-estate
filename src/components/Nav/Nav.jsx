@@ -40,7 +40,13 @@ const Nav = () => {
                             {Links}
                         </ul>
                     </div>
-                    <Link to='/' className="flex items-center md:font-bold  text-xl md:text-3xl uppercase"><HiHome className="text-primary" />nestle</Link>
+                    <Link to='/' className=" flex items-center md:font-bold  text-xl md:text-3xl uppercase"><HiHome className="text-primary" />
+                    
+
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-green-400 to-blue-400">nestle</span>
+
+
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
