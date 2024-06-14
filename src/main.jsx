@@ -43,7 +43,6 @@ const router = createBrowserRouter([
         element: <PrivateRoutes>
           <SinglePropertyDetail></SinglePropertyDetail>
         </PrivateRoutes>,
-
         loader: () => fetch("/AllProperty.json")
       },
       {
